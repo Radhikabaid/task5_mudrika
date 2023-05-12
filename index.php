@@ -1,31 +1,4 @@
-<?php
-$serverName = "localhost";
-$userName = "root";
-$password = "";
-$dbName = "mudrika";
 
-$con = mysqli_connect($serverName, $userName, $password, $dbName);
-
-if(mysqli_connect_errno()){
-    echo "Failed to connect!";
-    exit();
-}
-
-$sql = "SELECT Image FROM descp";
-$result = mysqli_query($con, $sql);
-$num_rows = mysqli_num_rows($result);
-$num_rows -= 1;
-
-if (mysqli_num_rows($result) > 0) {
-    $images = array();
-    while ($row = mysqli_fetch_assoc($result)) {
-        $images[] = $row['Image'];
-    }
-} else {
-    echo "No images found in the database.";
-}
-
-?>
 <!DOCTYPE html>
 <html lang="'en">
 
